@@ -3,59 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Which Disney Princess are you? 🌸</title>
+    <title>System Update</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            font-family: 'Courier New', Courier, monospace;
             text-align: center;
-            margin: 50px;
+            padding: 50px;
         }
-        .filler {
-            margin: 50px 0;
-            color: gray;
+        .update-box {
+            background-color: #2d2d2d;
+            color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 0 auto;
+            font-size: 18px;
         }
-        .final-message {
-            font-size: 2rem;
-            color: #ff69b4;
-            margin-top: 100px;
+        .progress-bar {
+            background-color: #4CAF50;
+            height: 30px;
+            width: 0%;
+            border-radius: 10px;
+        }
+        .progress-container {
+            background-color: #ddd;
+            border-radius: 10px;
+            width: 100%;
+            margin-top: 20px;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <h1>🌸 Which Disney Princess are you? 🌸</h1>
-    <p>Loading quiz results... please scroll down to reveal your Disney princess!</p>
 
-    <div class="filler">
-        <!-- Repeat filler text to create long scroll -->
-        <p>Processing... Please wait...</p>
-        <p>Almost there...</p>
-        <p>Double checking your answers...</p>
-        <p>Verifying magical spells...</p>
-        <p>Processing... Please wait...</p>
-        <p>Almost there...</p>
-        <p>Double checking your answers...</p>
-        <p>Verifying magical spells...</p>
-        <p>Still loading magic dust...</p>
-        <p>Gathering princess gowns...</p>
-        <p>Consulting fairy godmother...</p>
-        <!-- You can copy-paste more if you want it longer -->
+    <div class="update-box">
+        <h2>System Update in Progress...</h2>
+        <p>We are performing important system updates to improve performance.</p>
+        <p>Please wait while we complete the process.</p>
 
-        <!-- REALLY LONG FILLER (optional add more repetition) -->
-        <p>Processing... Please wait...</p>
-        <p>Almost there...</p>
-        <p>Double checking your answers...</p>
-        <p>Verifying magical spells...</p>
-        <p>Still loading magic dust...</p>
-        <p>Gathering princess gowns...</p>
-        <p>Consulting fairy godmother...</p>
-        <p>Still processing...</p>
-        <p>Almost done...</p>
-        <p>Magical results loading...</p>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <p id="status">Preparing update files...</p>
     </div>
 
-    <div class="final-message">
-        👑 You are… <b>THE QUEEN OF PATIENCE!</b> 😂 <br> Thanks for scrolling! PRANK SUCCESSFUL!
-    </div>
+    <script>
+        var progress = 0;
+        var statusText = document.getElementById('status');
+        var progressBar = document.querySelector('.progress-bar');
+        
+        var updateInterval = setInterval(function() {
+            if (progress < 100) {
+                progress += Math.random() * 5 + 2; // Add random increase to make it look more realistic
+                progressBar.style.width = progress + '%';
+                statusText.innerText = getStatusText(progress);
+            } else {
+                clearInterval(updateInterval);
+                statusText.innerText = "Update Complete! (Just kidding 😏)";
+                setTimeout(function() {
+                    alert("PRANK SUCCESSFUL! You’ve been tricked 😆");
+                    window.location.reload(); // Optionally reload the page after prank
+                }, 1000);
+            }
+        }, 500);
+
+        function getStatusText(progress) {
+            if (progress < 20) return "Preparing update files...";
+            if (progress < 40) return "Downloading update...";
+            if (progress < 60) return "Installing update...";
+            if (progress < 80) return "Finalizing installation...";
+            return "Completing update...";
+        }
+    </script>
 </body>
 </html>
+
 
